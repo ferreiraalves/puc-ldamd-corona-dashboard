@@ -1,8 +1,45 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<corona.Models.InfectionData>
+
+@{
+    ViewData["Title"] = "Corona Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Corona Dashboard</h1>
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ConfirmedCases)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deaths)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recovered)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConfirmedCases)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deaths)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Recovered)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
