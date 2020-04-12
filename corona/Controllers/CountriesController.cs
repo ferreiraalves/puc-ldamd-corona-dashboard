@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using corona.Data;
 using corona.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace corona.Controllers
 {
+    [Authorize]
     public class CountriesController : Controller
     {
         private readonly ApplicationDbContext _context;
