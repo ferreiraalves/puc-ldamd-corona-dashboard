@@ -1,0 +1,49 @@
+﻿@model corona.Models.InfectionData
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>InfectionData</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ConfirmedCases" class="control-label"></label>
+                <input asp-for="ConfirmedCases" class="form-control" />
+                <span asp-validation-for="ConfirmedCases" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Deaths" class="control-label"></label>
+                <input asp-for="Deaths" class="form-control" />
+                <span asp-validation-for="Deaths" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recovered" class="control-label"></label>
+                <input asp-for="Recovered" class="form-control" />
+                <span asp-validation-for="Recovered" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountryId" class="control-label"></label>
+                <select asp-for="CountryId" class="form-control" asp-items="ViewBag.CountryId"></select>
+                <span asp-validation-for="CountryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
