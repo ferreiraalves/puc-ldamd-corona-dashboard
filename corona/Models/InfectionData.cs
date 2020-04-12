@@ -17,6 +17,7 @@ namespace corona.Models
         [Required(ErrorMessage = "Required field")]
         public int Recovered { get; set; }
 
+        [Display(Name = "Country Name")]
         public int CountryId { get; set; }
         
         [ForeignKey("CountryId")]
